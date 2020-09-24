@@ -94,7 +94,7 @@ void *getNext(DLinkedList *list, int index){
         }
         Node *node = getNode(list, index);
         if(node != NULL) {
-            void *n = (void *) node->data;
+            void *n = (void *) node->next->data;
             return n;
         }
     }
@@ -111,7 +111,7 @@ void *getPrev(DLinkedList *list, int index){
         }
         Node *node = getNode(list, index);
         if(node != NULL) {
-            void *n = (void *) node->data;
+            void *n = (void *) node->prev->data;
             return n;
         }
     }
