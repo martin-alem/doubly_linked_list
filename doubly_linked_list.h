@@ -91,6 +91,24 @@ void *get(DLinkedList *list, int index);
 
 
 /*
+ * DEF: returns a pointer to next data
+ * PARAM1: DLinkedList *list - doubly linkedlist structure
+ * PARAM2: int index - index of data in list
+ * RETURN: returns a pointer to data;
+*/
+void *getNext(DLinkedList *list, int index);
+
+
+/*
+ * DEF: returns a pointer to previous data
+ * PARAM1: DLinkedList *list - doubly linkedlist structure
+ * PARAM2: int index - index of data in list
+ * RETURN: returns a pointer to data;
+*/
+void *getPrev(DLinkedList *list, int index);
+
+
+/*
  * DEF: removes the element at the specified index
  * PARAM1: DLinkedList *list - doubly linkedlist structure
  * PARAM2: int index - index of data in list
