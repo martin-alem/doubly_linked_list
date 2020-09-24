@@ -91,6 +91,15 @@ void *get(DLinkedList *list, int index);
 
 
 /*
+ * DEF: returns a pointer to Node
+ * PARAM1: DLinkedList *list - doubly linkedlist structure
+ * PARAM2: int index - index of data in list
+ * RETURN: returns a pointer to Node;
+*/
+Node *getNode(DLinkedList *list, int index);
+
+
+/*
  * DEF: returns a pointer to next data
  * PARAM1: DLinkedList *list - doubly linkedlist structure
  * PARAM2: int index - index of data in list
