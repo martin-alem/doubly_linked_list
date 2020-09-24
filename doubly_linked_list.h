@@ -80,6 +80,14 @@ void removeBack(DLinkedList *list);
 */
 unsigned int getSize(DLinkedList *list);
 
+/*
+ * DEF: returns a pointer to Node
+ * PARAM1: DLinkedList *list - doubly linkedlist structure
+ * PARAM2: int index - index of data in list
+ * RETURN: returns a pointer to Node;
+*/
+Node *getNode(DLinkedList *list, int index);
+
 
 /*
  * DEF: returns a pointer to the data at a particular index
@@ -88,15 +96,6 @@ unsigned int getSize(DLinkedList *list);
  * RETURN: returns a pointer to data;
 */
 void *get(DLinkedList *list, int index);
-
-
-/*
- * DEF: returns a pointer to Node
- * PARAM1: DLinkedList *list - doubly linkedlist structure
- * PARAM2: int index - index of data in list
- * RETURN: returns a pointer to Node;
-*/
-Node *getNode(DLinkedList *list, int index);
 
 
 /*

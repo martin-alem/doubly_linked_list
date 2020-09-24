@@ -60,15 +60,11 @@ void *get(DLinkedList *list, int index){
         if(index <= -1 || index >= getSize(list)){
             return NULL;
         }
-        Node *node = list->head;
-        unsigned int i = 0;
-        void *n;
-        do{
-            n = (void *)node->data;
-            node = node->next;
-            i += 1;
-        }while(i <= index);
-        return n;
+        Node *node = getNode(list, index);
+        if(node != NULL) {
+            void *n = (void *) node->data;
+            return n;
+        }
     }
     return NULL;
 }
@@ -77,9 +73,6 @@ Node *getNode(DLinkedList *list, int index){
 
     if(list->head != NULL) {
 
-        if(index <= -1 || index >= getSize(list)){
-            return NULL;
-        }
         Node *node = list->head;
         unsigned int i = 0;
         Node *n;
@@ -99,16 +92,13 @@ void *getNext(DLinkedList *list, int index){
         if (index <= -1 || index >= getSize(list) - 1) {
             return NULL;
         }
-        Node *node = list->head;
-        unsigned int i = 0;
-        void *n;
-        do {
-            n = (void *) node->next->data;
-            node = node->next;
-            i += 1;
-        } while (i <= index);
-        return n;
+        Node *node = getNode(list, index);
+        if(node != NULL) {
+            void *n = (void *) node->data;
+            return n;
+        }
     }
+    return NULL;
 }
 
 void *getPrev(DLinkedList *list, int index){
@@ -119,16 +109,13 @@ void *getPrev(DLinkedList *list, int index){
         if (index <= 0 || index >= len) {
             return NULL;
         }
-        Node *node = list->tail;
-        unsigned int i = len;
-        void *n;
-        do {
-            n = (void *) node->prev->data;
-            node = node->prev;
-            i -= 1;
-        } while (i > index);
-        return n;
+        Node *node = getNode(list, index);
+        if(node != NULL) {
+            void *n = (void *) node->data;
+            return n;
+        }
     }
+    return NULL;
 }
 
 
@@ -196,6 +183,26 @@ void removeAt(DLinkedList *list, int index){
             }
             freeNode((void **) &node);
         }
+    }
+}
+
+
+void removeNext(DLinkedList *list, int index){
+
+    if(list->head != NULL){
+
+        if(index <= -1 || index >= getSize(list)-1){
+            return;
+        }
+        Node *node = getNode(list, index);
+
+        if(node == NULL){
+            return;
+        }
+        Node *nextNode = node->next;
+        node->next = nextNode->next;
+        nextNode->next->prev = node;
+        freeNode((void **)&nextNode);
     }
 }
 
